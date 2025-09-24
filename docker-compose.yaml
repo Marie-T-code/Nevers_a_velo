@@ -1,6 +1,8 @@
+version: '3.9'
+
 services:
-  postgis:
-    image: postgis/postgis:16-3.4
+  db:
+    build: ./DB
     container_name: nevers_postgis
     env_file: ./.env
     ports:
@@ -9,6 +11,8 @@ services:
       - pgdata:/var/lib/postgresql/data
       - ./DATA:/import:ro
       - ./DB/init_db:/docker-entrypoint-initdb.d:ro
+      - ./exports:/exports
+      - ./SQL:/SQL
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 3s
