@@ -9,6 +9,6 @@ DELETE FROM public.routes_v1
 WHERE length_m < 1;
 
 -- Confirmation (facultative)
-RAISE NOTICE 'Nettoyage terminé.';
+\echo 'Nettoyage terminé.'
 
 COMMIT;

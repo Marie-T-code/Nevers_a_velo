@@ -1,4 +1,4 @@
--- 002_dijkstra_snap.sql
+-- 017_dijkstra_snap.sql
 -- Calcule un itinéraire entre deux points géographiques (lat/lon)
 -- en utilisant le snapping vers les nœuds du graphe
 

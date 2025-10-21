@@ -1,4 +1,4 @@
--- 009_analyzeGraph.sql
+-- 011_analyzeGraph.sql
 -- Vérification topologique du graphe final après nettoyage
 -- Mise à jour du champ "chk" dans la table des vertices
 
@@ -21,25 +21,5 @@ SELECT
   COUNT(*) AS total_noeuds
 FROM public.routes_v1_vertices_pgr;
 
--- 3️⃣  Export des nœuds problématiques pour inspection QGIS
-\pset tuples_only on
-\pset format unaligned
-\o /exports/noeuds_chk_non_zero.geojson
-SELECT json_build_object(
-  'type', 'FeatureCollection',
-  'features', json_agg(
-    json_build_object(
-      'type', 'Feature',
-      'geometry', ST_AsGeoJSON(ST_Transform(the_geom, 4326))::json,
-      'properties', json_build_object(
-        'id', id,
-        'chk', chk
-      )
-    )
-  )
-)
-FROM public.routes_v1_vertices_pgr
-WHERE chk <> 0;
-\o
 
 COMMIT;
