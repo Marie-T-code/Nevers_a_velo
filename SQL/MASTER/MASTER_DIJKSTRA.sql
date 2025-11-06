@@ -39,6 +39,9 @@ SELECT now() AS debut_pipeline;
 \i /SQL/algorithmes/dijkstra_snap/016_snap_to_nearest_node_function.sql
 \i /SQL/algorithmes/dijkstra_snap/017_dijkstra_snap.sql
 
+\echo '--- 8️⃣ Stress test du routage complet (tour de ville multipoints) ---'
+\i /SQL/algorithmes/dijkstra_snap/018_stress_test_dijkstra_snap.sql
+
 \echo '--- ✅ Pipeline complet exécuté avec succès ---'
 
 
