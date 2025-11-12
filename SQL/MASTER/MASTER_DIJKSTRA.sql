@@ -2,7 +2,14 @@
 --  MASTER_DIJKSTRA.sql  |  Pipeline complet Nevers à vélo V1
 -- ==========================================================
 -- Exécuter avec :
+--
+-- si vous êtes sous Powershell: 
 --   docker exec -it nevers_postgis bash -c "psql -U postgres -d nevers -f /SQL/MASTER/MASTER_DIJKSTRA.sql > /exports/log_master.txt"
+--
+-- si vous êtes sous bash/linux/macOS :
+--   docker exec -it nevers_postgis bash psql -U postgres -d nevers -f /SQL/MASTER/MASTER_DIJKSTRA.sql + ajouter à la ligne 48 du fichier les lignes 
+--  \o /exports/log_master.txt
+--  \o
 -- ==========================================================
 \timing
 
